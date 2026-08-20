@@ -46,12 +46,14 @@ jobs:
           --filePath "$SPPKG_PATH"
           --appCatalogUrl "$APP_CATALOG_URL"
           --overwrite
+          --debug
 
       - name: Deploy package
         run: >
           m365 spo app deploy
           --name m-365-webparts.sppkg
           --appCatalogUrl "$APP_CATALOG_URL"
+          --debug
 
       - name: Logout
         if: always()
