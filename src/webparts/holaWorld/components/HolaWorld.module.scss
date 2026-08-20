@@ -5,30 +5,44 @@
   padding: 1em;
   color: "[theme:bodyText, default: #323130]";
   color: var(--bodyText);
+  display: flex;
+  justify-content: center;
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
 }
 
-.welcome {
-  text-align: center;
-}
-
-.welcomeImage {
+.welcomeCard {
   width: 100%;
-  max-width: 420px;
+  max-width: 560px;
+  padding: 3em 2.5em;
+  border-radius: 12px;
+  text-align: center;
+  background: linear-gradient(135deg, #0078d4 0%, #2b88d8 45%, #50e6ff 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.links {
-  a {
-    text-decoration: none;
-    color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.9em;
+  margin-bottom: 1em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 
-    &:hover {
-      text-decoration: underline;
-      color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
-    }
-  }
+.title {
+  margin: 0 0 0.3em;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
 }
