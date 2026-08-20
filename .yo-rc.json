@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.22.3",
+    "sdksVersions": {},
+    "version": "1.23.0",
+    "libraryName": "m-365-webparts",
+    "libraryId": "81a463f2-6dd2-47e3-90ed-340fb1f7cfae",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "m-365-webparts",
+    "solutionShortDescription": "m-365-webparts description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

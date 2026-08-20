@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "m-365-webparts-client-side-solution",
+    "id": "81a463f2-6dd2-47e3-90ed-340fb1f7cfae",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "m-365-webparts description"
+      },
+      "longDescription": {
+        "default": "m-365-webparts description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "m-365-webparts Feature",
+        "description": "The feature that activates elements of the m-365-webparts solution.",
+        "id": "fc0ab9a4-823e-4096-9d81-b5abfd0a6d1b",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/m-365-webparts.sppkg"
+  }
+}
