@@ -1,0 +1,58 @@
+name: Deploy SPFx package to SharePoint App Catalog
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  APP_CATALOG_URL: https://ittridentsqa.sharepoint.com/sites/appcatalog
+  SPPKG_PATH: sharepoint/solution/m-365-webparts.sppkg
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and package SPFx solution
+        run: npm run build
+
+      - name: Install CLI for Microsoft 365
+        run: npm install -g @pnp/cli-microsoft365
+
+      - name: Login to Microsoft 365 (certificate auth)
+        run: >
+          m365 login
+          --authType certificate
+          --certificateBase64Encoded "${{ secrets.M365_CERT_BASE64 }}"
+          --password "${{ secrets.M365_CERT_PASSWORD }}"
+          --appId "${{ secrets.M365_APP_ID }}"
+          --tenant "${{ secrets.M365_TENANT_ID }}"
+
+      - name: Upload package to tenant app catalog
+        run: >
+          m365 spo app add
+          --filePath "$SPPKG_PATH"
+          --appCatalogUrl "$APP_CATALOG_URL"
+          --overwrite
+
+      - name: Deploy package
+        run: >
+          m365 spo app deploy
+          --name m-365-webparts.sppkg
+          --appCatalogUrl "$APP_CATALOG_URL"
+
+      - name: Logout
+        if: always()
+        run: m365 logout
